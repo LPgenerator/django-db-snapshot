@@ -1,0 +1,10 @@
+{% extends "dbsnapshot/admin/base_dbsnapshot.html" %}
+{% load i18n %}
+
+{% block result_list %}
+    {% if server.remote_clean %}
+        {% trans 'Success' %}
+    {% else %}
+        {% trans 'Error' %}
+    {% endif %}
+{% endblock %}

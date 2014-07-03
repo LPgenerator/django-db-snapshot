@@ -1,0 +1,13 @@
+{% extends "dbsnapshot/admin/base_dbsnapshot.html" %}
+{% load i18n %}
+
+{% block result_list %}
+    {% for bak in server.remote_list %}
+        <p>
+            {{ bak }}
+            [<a href="{% url 'admin:backup_delete' server.pk bak %}">delete</a>]
+        </p>
+    {% empty %}
+        {% trans 'Backups not found' %}
+    {% endfor %}
+{% endblock %}
